@@ -49,7 +49,7 @@ Config.BaitTimeLimit = 2              -- minutes
 Config.HuntingXPPerHarvest = 3  -- awarded each time you successfully skin an animal
 Config.HuntingXPPerMission = 10 -- awarded on completing a bounty mission
 
-Config.ImagesPath = "nui://FRRP-hunting/_icons/"
+Config.ImagesPath = "nui://Yusi-hunting/_icons/"
 
 -- _____                           __  _
 -- / ____|                         / _| (_)
