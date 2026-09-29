@@ -4,7 +4,6 @@ local function sellBuyItem(item, buy)
     })
     if not input then return end
 
-
     local data = {
         item = item.item,
         buy = buy,
@@ -12,9 +11,8 @@ local function sellBuyItem(item, buy)
         quantity = input[1]
     }
 
-    TriggerServerEvent("ars_hunting:sellBuyItem", data)
+    TriggerServerEvent("Yusi_hunting:sellBuyItem", data)
 end
-
 
 local function openShop(items, shopName)
     local options = {}
@@ -86,7 +84,6 @@ local function openShop(items, shopName)
     })
     lib.showContext('hunting_shop')
 end
-
 
 for shopName, shopData in pairs(Config.Shops) do
     local shop = lib.points.new({

@@ -15,10 +15,9 @@ local EndTextCommandSetBlipName = EndTextCommandSetBlipName
 
 utils = {}
 
-
 function utils.showNotification(msg, type, duration)
     lib.notify({
-        title = 'Ars Hunting',
+        title = 'FRRP Hunting',
         description = msg,
         type = type and type or 'info',
         duration = duration or 5000,
@@ -156,13 +155,18 @@ function utils.removeBlip(blip)
 end
 
 function utils.validWeapon(weaponList, currentWeapon)
+    if not currentWeapon then return false end
+
+    local current = type(currentWeapon) == "number" and currentWeapon or joaat(currentWeapon)
+
     for _, allowedWeapon in pairs(weaponList) do
-        if joaat(currentWeapon) == joaat(allowedWeapon) then return true end
+        local allowed = type(allowedWeapon) == "number" and allowedWeapon or joaat(allowedWeapon)
+        if current == allowed then return true end
     end
 
     return false
 end
 
-RegisterNetEvent('ars_hunting:showNotification', utils.showNotification)
+RegisterNetEvent('Yusi_hunting:showNotification', utils.showNotification)
 
 -- © 𝐴𝑟𝑖𝑢𝑠 𝐷𝑒𝑣𝑒𝑙𝑜𝑝𝑚𝑒𝑛𝑡

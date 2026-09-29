@@ -1,7 +1,7 @@
 if not Config.AimBlock.enable then return end
-function aimBlock(global)
+function Hunting.aimBlock(global)
     CreateThread(function()
-        while cache.weapon and (global and true or currentZone) do
+        while cache.weapon and (global or Hunting.zone) do
             local aiming, entity = GetEntityPlayerIsFreeAimingAt(cache.playerId)
             local freeAiming = IsPlayerFreeAiming(cache.playerId)
             local type = GetEntityType(entity)

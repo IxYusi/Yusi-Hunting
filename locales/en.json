@@ -4,6 +4,9 @@
 	"interact_haverest_animal": "~o~ [E] - ~w~ Harvest Animal",
 	"harvesting_animal": "Harvesting animal",
 	"invalid_harvesting_weapon": "You don't have the required tool to harvest this animal",
+	"failed_skinning_animal": "You botched the cut. Try butchering the animal again.",
+	"harvest_failed": "The animal could not be harvested. Move closer and try again.",
+	"weapon_zone_only": "This weapon can only be carried inside a hunting zone",
 	"tracking_animal": "Tracking animal",
 	"animal_tracked": "An animal has been successfully tracked",
 	"could_not_track_animal": "Unable to track any animals",
@@ -44,5 +47,11 @@
 	"take_animal_to_hunt": "Take animal back to hunt master",
 	"no_animal_brought": "You didnt brought the animal",
 	"take_animal_to_huntmaster": "Take animal to hunt master",
-	"talk_to_finish_mission": "Talk to the hunt master to collect your reward"
+	"talk_to_finish_mission": "Talk to the hunt master to collect your reward",
+	"cancel_mission": "Cancel Mission",
+	"cancel_mission_header": "Cancel Bounty",
+	"cancel_mission_content": "Are you sure you want to cancel **%s**? You'll lose any progress on it.",
+	"label_dont_cancel_mission": "Keep going",
+	"label_cancel_mission": "Cancel bounty",
+	"mission_cancelled": "You cancelled the %s bounty"
 }

@@ -37,16 +37,22 @@ end
 function framework.hasItems(data)
     local xPlayer = ESX.GetPlayerFromId(data.target)
 
+    local function itemCount(item)
+        if not item then return 0 end
+        return item.count or item.amount or 0
+    end
+
     if type(data.items) == "table" then
         for _, item in pairs(data.items) do
             local hasItem = xPlayer.getInventoryItem(item.item)
-            if not hasItem then return false end
-
-            if hasItem.count >= item.quantity then return true end
+            if itemCount(hasItem) < (item.quantity or 1) then
+                return false
+            end
         end
-    else
-        return xPlayer.getInventoryItem(data.items).count > 0
+        return true
     end
+
+    return itemCount(xPlayer.getInventoryItem(data.items)) > 0
 end
 
 function framework.removeItem(data)
@@ -55,17 +61,17 @@ function framework.removeItem(data)
 end
 
 ESX.RegisterUsableItem(Config.TrackerItem, function(source)
-    TriggerClientEvent("ars_hunting:trackAnimal", source)
+    TriggerClientEvent("Yusi_hunting:trackAnimal", source)
 end)
 
 ESX.RegisterUsableItem(Config.BaitItem, function(source)
     framework.removeItem({ target = source, item = Config.BaitItem, count = 1 })
-    TriggerClientEvent("ars_hunting:placeBait", source)
+    TriggerClientEvent("Yusi_hunting:placeBait", source)
 end)
 
 if Config.Campfire.enable then
     ESX.RegisterUsableItem(Config.Campfire.campfireItem, function(source, name, item)
         framework.removeItem({ target = source, item = Config.Campfire.campfireItem, count = 1 })
-        TriggerClientEvent("ars_hunting:useCampfire", source)
+        TriggerClientEvent("Yusi_hunting:useCampfire", source)
     end)
 end

@@ -1,6 +1,5 @@
 if not Config.Campfire.enable then return end
 
-
 local function openCampfireMenu(campfire, campfirePoint)
     lib.registerContext({
         id = 'campfire_menu',
@@ -26,7 +25,7 @@ local function openCampfireMenu(campfire, campfirePoint)
                             icon = Config.ImagesPath .. item.give .. ".png",
                             metadata = metadata,
                             onSelect = function()
-                                local hasItems = lib.callback.await('ars_hunting:hasItems', false, item.require)
+                                local hasItems = lib.callback.await('Yusi_hunting:hasItems', false, item.require)
                                 if not hasItems then return utils.showNotification(locale("no_items")) end
 
                                 if lib.progressBar({
@@ -52,7 +51,7 @@ local function openCampfireMenu(campfire, campfirePoint)
                                         required = item.require,
                                         give = item.give
                                     }
-                                    TriggerServerEvent("ars_hunting:cookItem", data)
+                                    TriggerServerEvent("Yusi_hunting:cookItem", data)
                                 end
                             end
                         }
@@ -91,7 +90,7 @@ local function openCampfireMenu(campfire, campfirePoint)
                         coords = GetEntityCoords(campfire)
                     }
                     DeleteEntity(campfire)
-                    TriggerServerEvent("ars_hunting:takeCampfire", data)
+                    TriggerServerEvent("Yusi_hunting:takeCampfire", data)
 
                     if campfirePoint then campfirePoint:remove() end
                 end
@@ -129,7 +128,6 @@ local function useCampFire()
         Citizen.Wait(100)
         land, safeZ = GetGroundZFor_3dCoord(coords.x, coords.y, coords.z, 1)
     until land
-
 
     local campfire = CreateObjectNoOffset("prop_beach_fire", coords.x, coords.y, safeZ + .15, true, true, true)
 
@@ -178,4 +176,4 @@ local function useCampFire()
     end
 end
 
-RegisterNetEvent("ars_hunting:useCampfire", useCampFire)
+RegisterNetEvent("Yusi_hunting:useCampfire", useCampFire)

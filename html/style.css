@@ -1,0 +1,101 @@
+:root {
+    --scale: 0.7;
+    --gold: #f0e27a;
+    --text: #cfcfcf;
+    --line: rgba(255, 255, 255, 0.14);
+    --bar: #6b6a3a;
+    --serif: "Cinzel", "Marcellus", "Cormorant Garamond", Georgia, "Times New Roman", serif;
+    --sans: "Segoe UI", Arial, sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body { background: transparent; overflow: hidden; }
+
+.panel {
+    position: fixed;
+    bottom: 22vh;
+    right: 0.4vh;
+    width: 30vh;
+    padding: 2.4vh 2vh 2vh;
+    transform: scale(var(--scale));
+    transform-origin: bottom right;
+    color: var(--text);
+    font-family: var(--sans);
+    background: linear-gradient(160deg, rgba(28, 28, 32, 0.94), rgba(10, 10, 12, 0.96));
+    border: 1px solid var(--line);
+    box-shadow: 0 1.5vh 4vh rgba(0, 0, 0, 0.6);
+    transition: opacity 0.25s, transform 0.25s;
+}
+
+.panel.hidden {
+    opacity: 0;
+    transform: translateX(3vh) scale(var(--scale));
+}
+
+.panel::before,
+.panel::after {
+    content: "";
+    position: absolute;
+    width: 1.4vh;
+    height: 1.4vh;
+    border: 1px solid #e6e6e6;
+}
+
+.panel::before { top: 0.6vh; left: 0.6vh; border-right: 0; border-bottom: 0; }
+.panel::after { bottom: 0.6vh; right: 0.6vh; border-left: 0; border-top: 0; }
+
+h1 {
+    font-family: var(--serif);
+    font-size: 1.9vh;
+    font-weight: 600;
+    letter-spacing: 0.35em;
+    text-align: center;
+    text-transform: uppercase;
+    color: #e4e4e4;
+}
+
+#time {
+    margin: 1.6vh 0 1vh;
+    font-family: var(--serif);
+    font-size: 4.2vh;
+    letter-spacing: 0.12em;
+    text-align: center;
+    color: var(--gold);
+    text-shadow: 0 0 1.4vh rgba(240, 226, 122, 0.35);
+}
+
+.bar {
+    height: 0.5vh;
+    background: rgba(255, 255, 255, 0.08);
+}
+
+#fill {
+    height: 100%;
+    width: 100%;
+    background: var(--bar);
+    transition: width 0.3s linear;
+}
+
+#rows {
+    margin-top: 1.8vh;
+    list-style: none;
+}
+
+#rows li {
+    display: flex;
+    justify-content: space-between;
+    gap: 1vh;
+    padding: 1.1vh 1.2vh;
+    margin-top: 0.8vh;
+    font-size: 1.5vh;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--line);
+}
+
+#rows li span:last-child { color: var(--gold); white-space: nowrap; }
+
+.panel.low #time { color: #e0705a; text-shadow: 0 0 1.4vh rgba(224, 112, 90, 0.35); }
+.panel.low #fill { background: #8a3f33; }
