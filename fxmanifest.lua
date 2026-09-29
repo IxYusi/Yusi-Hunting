@@ -4,10 +4,11 @@
 fx_version 'cerulean'
 use_fxv2_oal 'yes'
 lua54 'yes'
+ui_page 'html/index.html'
 game 'gta5'
 version '1.0.0'
-author 'Arius Scripts'
-
+author 'Yusi'
+description 'Hunting script by Yusi, based on ars_hunting by Arius Scripts (Apache-2.0)'
 
 --#--
 --Manifest--
@@ -37,6 +38,9 @@ server_scripts {
 }
 
 files {
+    "html/index.html",
+    "html/style.css",
+    "html/script.js",
     "locales/*.json",
     "_icons/*.png",
 }
